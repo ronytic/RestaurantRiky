@@ -91,3 +91,38 @@ ul, li{
     margin-bottom:20px;
     font-size:120%;
 }
+.contenido .platos img{
+    border:#9C9B9B 1px solid;
+    padding:0px;    
+    border-radius:10px;
+    text-align:center
+}
+.platos {
+    width:230px;
+    height:220px;
+    display:inline-block;
+    border:#C40408 1px solid;
+    padding:5px;
+    text-align:center
+}
+.platos h3{
+    background-color:#C40408;
+    margin-bottom:10px;    
+    padding:5px;
+    color:white;
+}
+.platos h4{
+    background-color:#F7982D;
+    margin-top:10px;  
+    margin-bottom:10px;    
+    padding:5px;
+    color:white;
+}
+.contenido input{
+    padding:10px;
+}
+input[type=submit]{
+    background-color:#FFA600;
+    border:#FFA600;    
+    color:#FFF
+}
