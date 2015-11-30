@@ -47,7 +47,7 @@ $reg=mysql_fetch_array($res);
 <br />
 <div class="main">
     <div class="contenido">
-        <h2><center>Modificar Personal</center></h2>
+        <h2><center>Modificar Personal</center><a href="principal.php" class="boton">Menú Principal</a></h2>
         <center>
             <form action="personal-actualizar.php" method="post">
                 <input type="hidden" name="cod_personal" value="<?php echo $reg['cod_personal']?>"/>

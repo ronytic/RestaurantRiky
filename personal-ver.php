@@ -43,7 +43,7 @@ if($_SESSION['correcto']=="no"){
 <br />
 <div class="main">
     <div class="contenido">
-        <h2><center>Ver Personal</center></h2>
+        <h2><center>Ver Personal</center><a href="principal.php" class="boton">Menú Principal</a></h2>
         <center>
             <form action="personal-buscar.php" method="post" target="buscar">
                 <table>
