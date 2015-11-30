@@ -45,7 +45,7 @@ $res=mysql_query("SELECT * FROM producto");
 <br />
 <div class="main">
     <div class="contenido">
-        <h2><center>Ver Compras</center></h2>
+        <h2><center>Ver Stock</center><a href="principal.php" class="boton">Menú Principal</a></h2>
         <center>
             <form action="stock-buscar.php" method="post" target="buscar">
                 <table>
@@ -58,6 +58,11 @@ $res=mysql_query("SELECT * FROM producto");
                                 <option value="<?php echo $reg['cod_producto']?>"><?php echo $reg['detalle']?></option>
                                 <?php }?>
                             </select>
+                        </td>
+                        <td>
+                            Fecha
+                            <br />
+                            <input type="date" name="fecha" />
                         </td>
                         <td>
                             <input type="submit" value="Buscar"/>
