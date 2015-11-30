@@ -53,6 +53,14 @@ if($_SESSION['correcto']=="no"){
             <a href="personal-ver.php"  class="boton">Ver Personal</a>
         </div>
         <div class="opcion">
+            <h3>Stock</h3>
+            <center>
+            <img src="imagenes/opcion/stock.png" width="200" height="180"/>
+            </center>
+            <a href="stock-nuevo.php" class="boton">Llenar Stock</a>
+            <a href="stock-ver.php"  class="boton">Ver Stock</a>
+        </div>
+        <div class="opcion">
             <h3>Ventas</h3>
             <center>
             <img src="imagenes/opcion/ventas.png" width="200" height="180"/>
@@ -61,20 +69,12 @@ if($_SESSION['correcto']=="no"){
             <br />
         </div>
         <div class="opcion">
-            <h3>Stock</h3>
-            <center>
-            <img src="imagenes/opcion/stock.png" width="200" height="180"/>
-            </center>
-            <a href="stock-nuevo.php" class="boton">Nueva Compra</a>
-            <a href="stock-ver.php"  class="boton">Ver Compras</a>
-        </div>
-        <div class="opcion">
             <h3>Reportes</h3>
             <center>
             <img src="imagenes/opcion/reportes.png" width="200" height="180"/>
             </center>
-            <a href="personal/nuevo.php" class="boton">Nuevo Personal</a>
-            <a href="personal/ver.php"  class="boton">Ver Personal</a>
+            <a href="reporte-dia.php" class="boton">Ver Reporte de Ventas</a>
+            <br />
         </div>
     </div>
 </div><!-- Fin del Main-->
