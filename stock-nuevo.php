@@ -50,7 +50,7 @@ $res=mysql_query("SELECT * FROM producto");
             <form action="stock-guardar.php" method="post">
                 <label>Fecha
                 <br />
-                    <input type="date" name="fecha"/>
+                    <input type="date" name="fecha" value="<?php echo date("Y-m-d");?>"/>
                 </label>
                 <br />
                 <label>Producto
