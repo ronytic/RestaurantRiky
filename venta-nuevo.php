@@ -24,6 +24,21 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
     <style type="text/css">
     *{ margin:0px;}
     </style>
+    <script language="javascript">
+    $(document).on("ready",function(){
+        $(".oproducto").change(function(e) {
+            var precio=$(this).attr("rel-precio");
+            
+            $("input[name=precio]").val(precio);
+        });
+        $("input[name=precio],input[name=cantidad]").change(function(e) {
+            var precio=parseFloat($("input[name=precio]").val());
+            var cantidad=parseFloat($("input[name=cantidad]").val());
+            var total=precio*cantidad;
+            $("input[name=preciototal]").val(total);
+        });
+    })
+    </script>
 </head>
 <body>
 <div class="cabecera">
@@ -54,7 +69,7 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
                 <tr>
                     <td><h3>BEBIDAS</h3>
                         <?php while($reg=mysql_fetch_array($res1)){?>
-                        <input type="radio" name="cod_producto" value="<?php echo $reg['cod_producto']?>"><?php echo $reg['detalle']?>
+                        <input type="radio" name="cod_producto" value="<?php echo $reg['cod_producto']?>" class="oproducto" rel-precio="<?php echo $reg['precio']?>"><?php echo $reg['detalle']?> - <?php echo $reg['precio']?> Bs
                         <br />
                         <img src="imagenes/productos/<?php echo $reg['cod_producto']?>.jpg" width="80" height="80"/>
                         <br />
@@ -62,34 +77,44 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
                     </td>
                     <td><h3>PLATOS</h3>
                         <?php while($reg=mysql_fetch_array($res2)){?>
-                        <input type="radio" name="cod_producto" value="<?php echo $reg['cod_producto']?>"><?php echo $reg['detalle']?>
+                        <input type="radio" name="cod_producto" value="<?php echo $reg['cod_producto']?>" class="oproducto" rel-precio="<?php echo $reg['precio']?>"><?php echo $reg['detalle']?> - <?php echo $reg['precio']?> Bs
                         <br />
                         <img src="imagenes/productos/<?php echo $reg['cod_producto']?>.jpg" width="80" height="80"/>
                         <br />
                         <?php }?>
                     </td>
                     <td style="vertical-align:top">
-                    <label>Código de Cliente
+                        <label>Código de Cliente
                         <br />
-                            <input type="text" name="cod_cliente"/>
+                            <input type="text" name="cod_cliente" maxlength="8" size="8"/>
+                        </label>
+                        <br />
+                        <label>Nombre de Cliente
+                        <br />
+                            <input type="text" name="nombrecliente"/>
                         </label>
                         <br />
                         <label>Cantidad
                         <br />
-                            <input type="number" name="cantidad"/>
+                            <input type="number" name="cantidad" value="0"/>
                         </label>
                         <br />
-                        <label>Precio
+                        <label>Precio Unitario
                         <br />
                             <input type="text" name="precio"/>
                         </label>
                         <br />
-                        <label>Fecha
+                        <label>Precio Total
                         <br />
-                            <input type="date" name="fecha"/>
+                            <input type="text" name="preciototal" readonly="readonly" style="background-color:#F0C7C8;"/>
                         </label>
                         <br />
-                        <label>Personal
+                        <label>Fecha
+                        <br />
+                            <input type="date" name="fecha" value="<?php echo date("Y-m-d");?>"/>
+                        </label>
+                        <br />
+                        <!--<label>Personal
                         <br />
                             <select name="cod_personal">
                             <?php while($reg=mysql_fetch_array($res)){?>
@@ -97,7 +122,7 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
                                 <?php }?>
                             </select>
                         </label>
-                        <br />
+                        <br />-->
                         
                         <br />
                         <input type="submit" value="Guardar"/>
