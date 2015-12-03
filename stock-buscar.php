@@ -2,7 +2,7 @@
 $cod_producto=$_POST['cod_producto'];
 $fecha=$_POST['fecha'];
 include_once("basededatos.php");
-$res=mysql_query("SELECT * FROM stock WHERE cod_producto LIKE '$cod_producto'");
+$res=mysql_query("SELECT * FROM stock WHERE cod_producto LIKE '$cod_producto' and fecha='$fecha'");
 // el % significa cualquier letra al final
 ?>
 <link href="css/estilo.css" type="text/css" rel="stylesheet">
