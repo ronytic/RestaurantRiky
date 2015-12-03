@@ -53,18 +53,24 @@ $res=mysql_query("SELECT * FROM personal");
                         <td>
                             Desde esta Fecha
                             <br />
-                            <input type="date" name="desde"/>
+                            <input type="date" name="desde" value="<?php echo date("Y-m-d");?>"/>
                         </td>
                         <td>
                             Hasta esta Fecha
                             <br />
-                            <input type="date" name="hasta"/>
+                            <input type="date" name="hasta" value="<?php echo date("Y-m-d");?>"/>
                         </td>
                         <td>
-                            Cliente
+                            Código del Cliente
                             <br />
                             <input type="text" name="cod_cliente"/>
                         </td>
+                        <td>
+                            Nombre del Cliente
+                            <br />
+                            <input type="text" name="nombrecliente"/>
+                        </td>
+                        <!--
                         <td>
                             Personal
                             <br />
@@ -73,7 +79,7 @@ $res=mysql_query("SELECT * FROM personal");
                                 <option value="<?php echo $reg['cod_personal']?>"><?php echo $reg['nombre']." ".$reg['paterno']." ".$reg['materno']?> - <?php echo $reg['cod_personal']?></option>
                                 <?php }?>
                             </select>
-                        </td>
+                        </td>-->
                         <td>
                             <input type="submit" value="Buscar"/>
                         </td>

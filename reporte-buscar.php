@@ -3,18 +3,20 @@ $desde=$_POST['desde'];
 $hasta=$_POST['hasta'];
 $cod_cliente=$_POST['cod_cliente'];
 $cod_personal=$_POST['cod_personal'];
+$nombrecliente=$_POST['nombrecliente'];
 
 include_once("basededatos.php");
-$res=mysql_query("SELECT * FROM venta WHERE cod_cliente LIKE '$cod_cliente%' and cod_personal LIKE '$cod_personal%' and fecha BETWEEN '$desde' and '$hasta'");
+$res=mysql_query("SELECT * FROM venta WHERE cod_cliente LIKE '$cod_cliente%' and nombrecliente LIKE '$nombrecliente%' and cod_personal LIKE '$cod_personal%' and fecha BETWEEN '$desde' and '$hasta'");
 // el % significa cualquier letra al final
 ?>
 <link href="css/estilo.css" type="text/css" rel="stylesheet">
 <table class="listado">
     <tr class="titulo">
         <td>N</td>
-        <td>Personal</td>
+        <!--<td>Personal</td>-->
         <td>Fecha</td>
-        <td>Cliente</td>
+        <td>Código del Cliente</td>
+        <td>Nombre del Cliente</td>
         <td>Producto</td>
         <td>Cantidad</td>
         <td>Precio</td>
@@ -29,9 +31,10 @@ $res=mysql_query("SELECT * FROM venta WHERE cod_cliente LIKE '$cod_cliente%' and
     ?>
     <tr>
         <td><?php echo $i?></td>
-        <td><?php echo $reg['cod_personal']?></td>
+        <!--<td><?php echo $reg['cod_personal']?></td>-->
         <td><?php echo $reg['fecha']?></td>
         <td><?php echo $reg['cod_cliente']?></td>
+        <td><?php echo $reg['nombrecliente']?></td>
         <td><?php echo $reg2['detalle']?></td>
         <td align="right"><?php echo $reg['cantidad']?></td>
         <td align="right"><?php echo $reg['precio']?></td>
