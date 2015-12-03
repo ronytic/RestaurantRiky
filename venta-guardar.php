@@ -6,9 +6,12 @@ $cantidad=$_POST['cantidad'];
 $cod_personal=$_POST['cod_personal'];
 $precio=$_POST['precio'];
 $fecha=$_POST['fecha'];
+$nombrecliente=$_POST['nombrecliente'];
+
 
 $_SESSION['venta'][]=array('cod_producto'=>$cod_producto,
                             'cod_cliente'=>$cod_cliente,
+                            'nombrecliente'=>$nombrecliente,
                             'cantidad'=>$cantidad,
                             'fecha'=>$fecha,
                             'cod_personal'=>$cod_personal,
