@@ -62,7 +62,7 @@ $res=mysql_query("SELECT * FROM producto");
                         <td>
                             Fecha
                             <br />
-                            <input type="date" name="fecha" />
+                            <input type="date" name="fecha" value="<?php echo date("Y-m-d");?>"/>
                         </td>
                         <td>
                             <input type="submit" value="Buscar"/>
