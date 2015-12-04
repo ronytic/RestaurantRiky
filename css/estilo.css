@@ -52,6 +52,8 @@ ul, li{
 }
 /*Fin de Estilo de Menu*/
 .auspiciadores {
+    clear:both;
+    display:block;
     width:93%;
     background-color:#fff;
     height:140px;
@@ -140,7 +142,8 @@ ul, li{
 .opcion {
     width:230px;
     height:320px;
-    display:inline-block;
+    /*display:inline-block;*/
+    float:left;
     border:#C40408 1px solid;
     padding:5px;
     text-align:center
