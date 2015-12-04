@@ -28,8 +28,15 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
     $(document).on("ready",function(){
         $(".oproducto").change(function(e) {
             var precio=$(this).attr("rel-precio");
+            var valor=$(this).val();
+            var fecha=$("input[name=fecha]").val();
+            $.post("venta-cantidad.php",{'cod_producto':valor,'fecha':fecha},function(data){
+                $("input[name=cantidadstock]").val(data)
+                $("input[name=cantidad]").attr("max",data)
+            })
             
             $("input[name=precio]").val(precio);
+            
         });
         $("input[name=precio],input[name=cantidad]").change(function(e) {
             var precio=parseFloat($("input[name=precio]").val());
@@ -94,9 +101,14 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
                             <input type="text" name="nombrecliente"/>
                         </label>
                         <br />
+                        <label>Cantidad en Stock para Venta
+                        <br />
+                            <input type="number" name="cantidadstock" value="0"  readonly="readonly" style="background-color:#F0C7C8;text-align:right" min="0"/>
+                        </label>
+                        <br />
                         <label>Cantidad
                         <br />
-                            <input type="number" name="cantidad" value="0"/>
+                            <input type="number" name="cantidad" value="0" min="0" style="text-align:right"/>
                         </label>
                         <br />
                         <label>Precio Unitario
