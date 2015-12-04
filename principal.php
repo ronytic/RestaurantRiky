@@ -67,6 +67,7 @@ if($_SESSION['correcto']=="no"){
             </center>
             <a href="venta-nuevo.php" class="boton">Nueva Venta</a>
             <br />
+            <br />
         </div>
         <div class="opcion">
             <h3>Reportes</h3>
@@ -74,6 +75,7 @@ if($_SESSION['correcto']=="no"){
             <img src="imagenes/opcion/reportes.png" width="200" height="180"/>
             </center>
             <a href="reporte-dia.php" class="boton">Ver Reporte de Ventas</a>
+            <a href="imprimir-dia.php" class="boton">Imprimir Reporte de Ventas</a>
             <br />
         </div>
     </div>
