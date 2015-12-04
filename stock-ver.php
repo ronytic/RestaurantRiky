@@ -4,7 +4,7 @@ if($_SESSION['correcto']=="no"){
     header("Location:login.html");//Se va a otra pagina automaticamente
 }
 include_once("basededatos.php");
-$res=mysql_query("SELECT * FROM producto");
+$res=mysql_query("SELECT * FROM producto ORDER BY tipo,detalle");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,6 +54,7 @@ $res=mysql_query("SELECT * FROM producto");
                             Producto    
                             <br />
                             <select name="cod_producto">
+                                <option value="%">Todos</option>
                                 <?php while($reg=mysql_fetch_array($res)){?>
                                 <option value="<?php echo $reg['cod_producto']?>"><?php echo $reg['detalle']?></option>
                                 <?php }?>
