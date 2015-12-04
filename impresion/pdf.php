@@ -3,48 +3,7 @@ include_once("fpdf_protection.php");
 
 	class PPDF extends FPDF_Protection{
 		var $ancho=176;
-		function Header(){
-			global $idioma;
-			$this->SetTitle(utf8_decode("Sistema de Administración de Clinica"),true);
-			$this->SetAuthor(utf8_decode("Sistema de Administración de Clinica Desarrollado por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
-			$this->SetSubject(utf8_decode("Sistema de Administración de Clinica por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
-			$this->SetCreator(utf8_decode("Sistema de Administración de Clinica por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
-			$this->SetProtection(array('print'));
-			if($this->CurOrientation=="P"){$this->ancho=$this->w-34;}else{$this->ancho=$this->w-40;}	
-			/*
-			if($this->CurOrientation=="P"){
-				$this->Line($this->w-16,46,$this->w-16,$this->h-15);
-			}else{
-				$this->Line($this->w-22,46,$this->w-22,$this->h-15);	
-			}*/
-			
-			$this->SetLeftMargin(18);
-			$this->SetAutoPageBreak(true,15);
-			global $title,$gestion,$titulo,$logo,$idioma;
-			$fecha=capitalizar(strftime("%A, %d ")).$idioma['De'].capitalizar(strftime(" %B ")).$idioma['De'].strftime(" %Y");
-			
-			$logo="logo.jpg";
-			$this->Image("../../imagenes/logo/".$logo,10,10,40,20);
-			$this->Fuente("",10);
-			$this->SetXY(34,12);
-			$this->Cell(70,4,utf8_decode($title),0,0,"L");
-			$this->Fuente("B",8);
-			$this->SetXY(34,16);
-			$this->Cell(70,4,utf8_decode($gestion),0,0,"L");
-			$this->ln(10);	
-			$this->Fuente("B",18);
-			$this->Cell($this->ancho,4,utf8_decode($titulo.$this->orientation),0,5,"C");
-			$this->ln(5);
-			$this->CuadroCabecera(40,"Fecha del Reporte:",20,utf8_encode($fecha));
-			$this->ln(5);
-			if(in_array("Cabecera",get_class_methods($this))){
-				$this->Cabecera();	
-			}
-			$this->ln();
-			
-			$this->Cell($this->ancho,0,"",1,1);
-			$this->Ln(0.1);
-		}
+		
 		function Pagina(){
 			global $idioma;
 			$this->AliasNbPages();
@@ -116,6 +75,47 @@ include_once("fpdf_protection.php");
 				$this->CuadroCuerpo($ancho2,$v,0,"",0,"","");
 				$this->ln($alto);
 			}
+		}
+        function Header(){
+			global $idioma;
+			$this->SetTitle(utf8_decode("Sistema de Administración"),true);
+			$this->SetAuthor(utf8_decode("Sistema de Administración por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
+			$this->SetSubject(utf8_decode("Sistema de Administración por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
+			$this->SetCreator(utf8_decode("Sistema de Administración por Ronald Nina Layme. Cel: 73230568 - www.facebook.com/ronaldnina"),true);
+			$this->SetProtection(array('print'));
+			if($this->CurOrientation=="P"){$this->ancho=$this->w-34;}else{$this->ancho=$this->w-40;}	
+			/*
+			if($this->CurOrientation=="P"){
+				$this->Line($this->w-16,46,$this->w-16,$this->h-15);
+			}else{
+				$this->Line($this->w-22,46,$this->w-22,$this->h-15);	
+			}*/
+			
+			$this->SetLeftMargin(18);
+			$this->SetAutoPageBreak(true,15);
+			global $title,$gestion,$titulo,$logo,$idioma;
+			$fecha=(strftime("%A, %d ")).$idioma['De'].(strftime(" %B ")).$idioma['De'].strftime(" %Y");
+			
+			$this->Image("imagenes/logo.jpg",10,10,70,20);
+			$this->Fuente("",10);
+			$this->SetXY(34,12);
+			$this->Cell(70,4,utf8_decode($title),0,0,"L");
+			$this->Fuente("B",8);
+			$this->SetXY(34,16);
+			$this->Cell(70,4,utf8_decode($gestion),0,0,"L");
+			$this->ln(10);	
+			$this->Fuente("B",18);
+			$this->Cell($this->ancho,4,utf8_decode($titulo),0,5,"C");
+			$this->ln(5);
+			$this->CuadroCabecera(40,"Fecha del Reporte:",20,utf8_encode($fecha));
+			$this->ln(5);
+			if(in_array("Cabecera",get_class_methods($this))){
+				$this->Cabecera();	
+			}
+			$this->ln();
+			
+			$this->Cell($this->ancho,0,"",1,1);
+			$this->Ln(0.1);
 		}
 		function Footer()
 		{	global $lema,$idioma;
