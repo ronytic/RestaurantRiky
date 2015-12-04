@@ -63,7 +63,7 @@ $res=mysql_query("SELECT * FROM personal");
                         <td>
                             Código del Cliente
                             <br />
-                            <input type="text" name="cod_cliente"/>
+                            <input type="text" name="cod_cliente"  maxlength="8" max="99999999"/>
                         </td>
                         <td>
                             Nombre del Cliente
