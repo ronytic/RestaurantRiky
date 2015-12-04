@@ -51,7 +51,7 @@ if($_SESSION['correcto']=="no"){
                         <td>
                             Carnet
                             <br />
-                            <input type="text" name="ci"/>
+                            <input type="text" name="ci"  maxlength="8" max="99999999"/>
                         </td>
                         <td>
                             Nombre

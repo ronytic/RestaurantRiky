@@ -48,7 +48,7 @@ if($_SESSION['correcto']=="no"){
             <form action="personal-guardar.php" method="post">
                 <label>Carnet
                 <br />
-                    <input type="text" name="ci"/>
+                    <input type="text" name="ci"  maxlength="8" max="99999999"/>
                 </label>
                 <br />
                 <label>Nombre
