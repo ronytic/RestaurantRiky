@@ -71,7 +71,7 @@ $reg=mysql_fetch_array($res);
                  <br />
                 <label>Imágen
                 <br />
-                    <input type="file" name="foto" required="required" accept=".jpg"/>
+                    <input type="file" name="foto" accept=".jpg"/>
                 </label>
                 <br />
                 <br />

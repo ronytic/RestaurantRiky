@@ -2,7 +2,7 @@
 $detalle=$_POST['detalle'];
 include_once("basededatos.php");
 
-$res=mysql_query("SELECT * FROM producto WHERE detalle LIKE '$detalle%' ");
+$res=mysql_query("SELECT * FROM producto WHERE detalle LIKE '$detalle%' ORDER BY tipo,detalle");
 // el % significa cualquier letra al final
 ?>
 <link href="css/estilo.css" type="text/css" rel="stylesheet">
