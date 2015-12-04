@@ -1,4 +1,4 @@
 <?php
 $conexion = mysql_connect('localhost','root','');
-mysql_select_db('restaurantriky');
+mysql_select_db('restaurantriky',$conexion);
 ?>
