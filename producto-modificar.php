@@ -3,6 +3,10 @@ session_start();
 if($_SESSION['correcto']=="no"){
     header("Location:login.html");//Se va a otra pagina automaticamente
 }
+$cod_producto=$_GET['cod_producto'];// Recuepramos lo que nos llega del otro formulario
+include_once("basededatos.php");
+$res=mysql_query("SELECT * FROM producto WHERE cod_producto='$cod_producto'");
+$reg=mysql_fetch_array($res);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,43 +47,37 @@ if($_SESSION['correcto']=="no"){
 <br />
 <div class="main">
     <div class="contenido">
-        <h2><center>Bienvenidos al Sistema </center></h2>
-        <div class="opcion">
-            <h3>Personal</h3>
-            <center>
-            <img src="imagenes/opcion/personal.png" width="200" height="180"/>
-            </center>
-            <a href="personal-nuevo.php" class="boton">Nuevo Personal</a>
-            <a href="personal-ver.php"  class="boton">Ver Personal</a>
-        </div>
-        <div class="opcion">
-            <h3>Stock</h3>
-            <center>
-            <img src="imagenes/opcion/stock.png" width="200" height="180"/>
-            </center>
-            <a href="stock-nuevo.php" class="boton">Llenar Stock</a>
-            <a href="stock-ver.php"  class="boton">Ver Stock</a>
-            <a href="producto-nuevo.php" class="boton">Nuevo Producto</a>
-            <a href="producto-ver.php" class="boton">Ver Productos</a>
-        </div>
-        <div class="opcion">
-            <h3>Ventas</h3>
-            <center>
-            <img src="imagenes/opcion/ventas.png" width="200" height="180"/>
-            </center>
-            <a href="venta-nuevo.php" class="boton">Nueva Venta</a>
-            <br />
-            <br />
-        </div>
-        <div class="opcion">
-            <h3>Reportes</h3>
-            <center>
-            <img src="imagenes/opcion/reportes.png" width="200" height="180"/>
-            </center>
-            <a href="reporte-dia.php" class="boton">Ver Reporte de Ventas</a>
-            <a href="imprimir-dia.php" class="boton">Imprimir Reporte de Ventas</a>
-            <br />
-        </div>
+        <h2><center>Modificar Producto</center><a href="principal.php" class="boton">Menú Principal</a></h2>
+        <center>
+            <form action="producto-actualizar.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="cod_producto" value="<?php echo $reg['cod_producto']?>"/>
+                <label>Detalle
+                <br />
+                    <input type="text" name="detalle" value="<?php echo $reg['detalle']?>"/>
+                </label>
+                <br />
+                <label>Precio
+                <br />
+                    <input type="text" name="precio" value="<?php echo $reg['precio']?>"/>
+                </label>
+                <br />
+                <label>Tipo
+                <br />
+                    <select name="tipo" required="required">
+                        <option value="B" <?php echo $reg['tipo']=="B"?'selected="selected"':''?>>Bebidas</option>
+                        <option value="P" <?php echo $reg['tipo']=="P"?'selected="selected"':''?>>Platos</option>
+                    </select>
+                </label>
+                 <br />
+                <label>Imágen
+                <br />
+                    <input type="file" name="foto" required="required" accept=".jpg"/>
+                </label>
+                <br />
+                <br />
+                <input type="submit" value="Guardar"/>
+            </form>
+        </center>
     </div>
 </div><!-- Fin del Main-->
 
