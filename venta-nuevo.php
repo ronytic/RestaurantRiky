@@ -74,7 +74,7 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
             <form action="venta-guardar.php" method="post" target="guardar">
             <table>
                 <tr>
-                    <td><h3>BEBIDAS</h3>
+                    <td style="vertical-align:top"><h3>BEBIDAS</h3>
                         <?php while($reg=mysql_fetch_array($res1)){?>
                         <input type="radio" name="cod_producto" value="<?php echo $reg['cod_producto']?>" class="oproducto" rel-precio="<?php echo $reg['precio']?>"><?php echo $reg['detalle']?> - <?php echo $reg['precio']?> Bs
                         <br />
@@ -82,7 +82,7 @@ $res2=mysql_query("SELECT * FROM producto WHERE tipo='P'");
                         <br />
                         <?php }?>
                     </td>
-                    <td><h3>PLATOS</h3>
+                    <td style="vertical-align:top"><h3>PLATOS</h3>
                         <?php while($reg=mysql_fetch_array($res2)){?>
                         <input type="radio" name="cod_producto" value="<?php echo $reg['cod_producto']?>" class="oproducto" rel-precio="<?php echo $reg['precio']?>"><?php echo $reg['detalle']?> - <?php echo $reg['precio']?> Bs
                         <br />
